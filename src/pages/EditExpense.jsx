@@ -45,6 +45,7 @@ export default function EditExpense() {
     const foundExpense = expenses.find((exp) => exp.id === productId);
     if (!foundExpense) {
       navigate("/");
+      return;
     } else {
       const { date, item, amount, description } = refs.current;
       date.value = foundExpense.date;

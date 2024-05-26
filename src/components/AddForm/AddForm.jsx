@@ -2,9 +2,8 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 // import { useValidate } from "../hooks/useValidate";
 import { checkValidate } from "../../utils/checkValidate";
-import { MAX_DATE, MIN_DATE } from "../../constants/dateConstants";
 import { Wrapper } from "./AddForm.styled";
-import InputContainer from "../Input/InputContainer";
+import InputContainer from "../InputContainer/InputContainer";
 import { SubmitBtn } from "../SubmitBtn/SubmitBtn.styled";
 
 export default function AddForm({ onAdd }) {
@@ -35,6 +34,7 @@ export default function AddForm({ onAdd }) {
     onAdd(newExpense);
     setFormState(initialFormState);
   };
+
   return (
     <Wrapper onSubmit={handleSubmit}>
       <InputContainer
@@ -50,6 +50,7 @@ export default function AddForm({ onAdd }) {
         value={formState.item}
         type="text"
         labelText="항목"
+        placeHolder="지출 항목"
       />
       <InputContainer
         onChange={handleChange}
@@ -57,6 +58,7 @@ export default function AddForm({ onAdd }) {
         value={formState.amount}
         type="number"
         labelText="금액"
+        placeHolder="지출 금액"
       />
       <InputContainer
         onChange={handleChange}
@@ -64,6 +66,7 @@ export default function AddForm({ onAdd }) {
         value={formState.description}
         type="text"
         labelText="내용"
+        placeHolder="지출 내용"
       />
 
       <SubmitBtn>저장</SubmitBtn>

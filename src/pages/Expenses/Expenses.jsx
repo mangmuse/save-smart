@@ -1,7 +1,7 @@
 import { useOutletContext, useParams } from "react-router-dom";
 import ExpenseCard from "../../components/ExpenseCard/ExpenseCard";
 import ExpenseSummary from "../../components/ExpenseSummary/ExpenseSummary";
-import { ListWrapper, Wrapper } from "./Expenses.styled";
+import { ListWrapper, NoExpensesMessage, Wrapper } from "./Expenses.styled";
 
 export default function Expenses() {
   const { month } = useParams();
@@ -18,11 +18,15 @@ export default function Expenses() {
     <Wrapper>
       <ExpenseSummary expenses={filteredData} />
       <ListWrapper>
-        {filteredData.map((ex) => (
-          <ExpenseCard key={ex.id} data={ex}>
-            {ex.item}
-          </ExpenseCard>
-        ))}
+        {filteredData.length > 0 &&
+          filteredData.map((ex) => (
+            <ExpenseCard key={ex.id} data={ex}>
+              {ex.item}
+            </ExpenseCard>
+          ))}
+        {filteredData.length === 0 && (
+          <NoExpensesMessage>지출이 없습니다.</NoExpensesMessage>
+        )}
       </ListWrapper>
     </Wrapper>
   );

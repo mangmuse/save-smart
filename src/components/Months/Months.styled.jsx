@@ -32,5 +32,5 @@ export const MonthTab = styled.div`
   &:hover {
     ${activeStyles}
   }
-  ${(props) => props.$isActive && activeStyles}}
+  ${(props) => props.$isActive && activeStyles}
 `;
