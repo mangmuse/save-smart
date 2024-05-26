@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-// import { useValidate } from "../hooks/useValidate";
 import { checkValidate } from "../../utils/checkValidate";
 import { Wrapper } from "./AddForm.styled";
 import InputContainer from "../InputContainer/InputContainer";
-import { SubmitBtn } from "../SubmitBtn/SubmitBtn.styled";
+import { Button } from "../Button/Button.styled";
 
 export default function AddForm({ onAdd }) {
   const initialFormState = {
@@ -69,7 +68,7 @@ export default function AddForm({ onAdd }) {
         placeHolder="지출 내용"
       />
 
-      <SubmitBtn>저장</SubmitBtn>
+      <Button $btnType="submit">저장</Button>
     </Wrapper>
   );
 }

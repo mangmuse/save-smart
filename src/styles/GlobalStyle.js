@@ -21,7 +21,6 @@ ${reset}
  }
  #root {
    display: flex;
-   
    max-width: 800px;
    padding: 2rem;
    height: 100vh;

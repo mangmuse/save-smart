@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { useParams, useNavigate, useOutletContext } from "react-router-dom";
 import { checkValidate } from "../../utils/checkValidate";
-import { MIN_DATE, MAX_DATE } from "../../constants/dateConstants";
+import { BtnContainer, Wrapper } from "./EditExpense.styled";
+import { Button } from "../../components/Button/Button.styled";
+import InputContainer from "../../components/\bInputContainer/InputContainer";
 
 export default function EditExpense() {
   const navigate = useNavigate();
@@ -32,11 +34,19 @@ export default function EditExpense() {
       return;
     }
     handleUpdateExpense(formState);
-    navigate("/");
+    navigate(-1);
   };
 
   const handleDelete = (e) => {
     e.preventDefault();
+    const currentDescription = refs.current.description.value;
+    const description = prompt(
+      `삭제할 내용을 입력해주세요 "${currentDescription}"`
+    );
+    if (description !== currentDescription) {
+      alert("asd");
+      return;
+    }
     handleDeleteExpense(productId);
     navigate("/");
   };
@@ -55,44 +65,46 @@ export default function EditExpense() {
     }
   }, [expenses, productId, navigate]);
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="date">날짜</label>
-      <input
-        name="date"
-        min={MIN_DATE}
-        max={MAX_DATE}
-        ref={(el) => (refs.current.date = el)}
+    <Wrapper onSubmit={handleSubmit}>
+      <InputContainer
         id="date"
         type="date"
+        labelText="날짜"
+        ref={(el) => (refs.current.date = el)}
+        isUncontrolled
       />
-      <label htmlFor="item">아이템</label>
-      <input
-        name="item"
-        ref={(el) => (refs.current.item = el)}
+      <InputContainer
         id="item"
         type="text"
+        labelText="항목"
+        ref={(el) => (refs.current.item = el)}
+        isUncontrolled
       />
-      <label htmlFor="amount">어마운트</label>
-      <input
-        name="amount"
-        ref={(el) => (refs.current.amount = el)}
+      <InputContainer
         id="amount"
         type="number"
+        labelText="금액"
+        ref={(el) => (refs.current.amount = el)}
+        isUncontrolled
       />
-      <label htmlFor="description">디스크립션</label>
-      <input
-        name="description"
-        ref={(el) => (refs.current.description = el)}
+      <InputContainer
         id="description"
         type="text"
+        labelText="내용"
+        ref={(el) => (refs.current.description = el)}
+        isUncontrolled
       />
-      <button type="submit">저장</button>
-      <button type="button" onClick={handleDelete}>
-        삭제
-      </button>
-      <button type="button" onClick={() => navigate("/")}>
-        뒤로가기
-      </button>
-    </form>
+      <BtnContainer>
+        <Button type="submit" $btnType="submit">
+          저장
+        </Button>
+        <Button type="button" $btnType="delete" onClick={handleDelete}>
+          삭제
+        </Button>
+        <Button type="button" $btnType="go-back" onClick={() => navigate(-1)}>
+          뒤로가기
+        </Button>
+      </BtnContainer>
+    </Wrapper>
   );
 }

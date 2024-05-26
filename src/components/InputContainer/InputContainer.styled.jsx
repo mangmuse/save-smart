@@ -1,8 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  ${(props) =>
+    props.$isUncontrolled &&
+    css`
+      margin-bottom: 10px;
+    `}
 `;
 
 export const Label = styled.label`
@@ -14,4 +19,5 @@ export const Input = styled.input`
   border: 1px solid rgb(221, 221, 221);
   border-radius: 4px;
   padding: 8px;
+  ${(props) => props.$isUncontrolled && css``}
 `;

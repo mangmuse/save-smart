@@ -42,7 +42,7 @@ export default function ExpenseSummary({ expenses }) {
   return (
     <Wrapper>
       <TotalExpense>
-        {month}월 총 지출: {formatNumberWithCommas(totalAmount)}
+        {month}월 총 지출: {formatNumberWithCommas(totalAmount)} 원
       </TotalExpense>
       {
         <TotalExpenseGraph>
