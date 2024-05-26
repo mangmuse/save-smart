@@ -71,28 +71,28 @@ export default function EditExpense() {
         type="date"
         labelText="날짜"
         ref={(el) => (refs.current.date = el)}
-        isUncontrolled
+        isEditPage
       />
       <InputContainer
         id="item"
         type="text"
         labelText="항목"
         ref={(el) => (refs.current.item = el)}
-        isUncontrolled
+        isEditPage
       />
       <InputContainer
         id="amount"
         type="number"
         labelText="금액"
         ref={(el) => (refs.current.amount = el)}
-        isUncontrolled
+        isEditPage
       />
       <InputContainer
         id="description"
         type="text"
         labelText="내용"
         ref={(el) => (refs.current.description = el)}
-        isUncontrolled
+        isEditPage
       />
       <BtnContainer>
         <Button type="submit" $btnType="submit">

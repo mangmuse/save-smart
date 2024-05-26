@@ -12,14 +12,14 @@ const InputContainer = React.forwardRef(
       labelText,
       placeHolder,
       defaultValue,
-      isUncontrolled,
+      isEditPage,
     },
     ref
   ) => {
     const isDate = id === "date";
     return (
-      <Wrapper $isUncontrolled={isUncontrolled}>
-        <Label htmlFor={id} $isUncontrolled={isUncontrolled}>
+      <Wrapper $isUncontrolled={isEditPage}>
+        <Label htmlFor={id} $isUncontrolled={isEditPage}>
           {labelText}
         </Label>
         <Input
@@ -32,7 +32,7 @@ const InputContainer = React.forwardRef(
           min={isDate ? MIN_DATE : undefined}
           max={isDate ? MAX_DATE : undefined}
           ref={ref}
-          $isUncontrolled={isUncontrolled}
+          $isEditPage={isEditPage}
         />
       </Wrapper>
     );

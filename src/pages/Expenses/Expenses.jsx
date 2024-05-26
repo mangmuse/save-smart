@@ -13,7 +13,6 @@ export default function Expenses() {
       return expenseMonth === parseInt(month, 10);
     })
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-  console.log(filteredData);
   return (
     <Wrapper>
       <ExpenseSummary expenses={filteredData} />
