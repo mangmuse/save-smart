@@ -1,6 +1,6 @@
 import { Outlet, useOutletContext } from "react-router-dom";
-import AddForm from "../components/AddForm/AddForm";
-import Months from "../components/Months/Months";
+import AddForm from "../../components/AddForm/AddForm";
+import Months from "../../components/Months/Months";
 
 export default function ExpenseManager() {
   const { expenses, handleAddExpense } = useOutletContext();

@@ -8,11 +8,13 @@ import {
   TotalExpenseGraph,
   Wrapper,
 } from "./ExpenseSummary.styled";
-import { COLORS } from "../../constants/dateConstants";
+// import { COLORS } from "../../constants/dateConstants";
 import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas";
 import { useMemo } from "react";
+import { scaleOrdinal, schemeCategory10 } from "d3";
 
 export default function ExpenseSummary({ expenses }) {
+  const colorScale = scaleOrdinal(schemeCategory10);
   const { month } = useParams();
   const totalAmount = useMemo(
     () =>
@@ -33,6 +35,7 @@ export default function ExpenseSummary({ expenses }) {
         item,
         amount,
         percentage: (amount / totalAmount) * 100,
+        color: colorScale(item),
       }));
   }, [expenses, totalAmount]);
 
@@ -46,7 +49,7 @@ export default function ExpenseSummary({ expenses }) {
           {itemAmounts.map((item, index) => (
             <ExpenseItem
               key={index}
-              $bgColor={COLORS[index]}
+              $bgColor={item.color}
               $width={item.percentage}
             />
           ))}
@@ -56,7 +59,7 @@ export default function ExpenseSummary({ expenses }) {
         {itemAmounts.length > 0 &&
           itemAmounts.map((item, index) => (
             <ExpenseItemDetail key={index}>
-              <ItemColor $bgColor={COLORS[index]} />
+              <ItemColor $bgColor={item.color} />
               <p>
                 {item.item}: {formatNumberWithCommas(item.amount)} (
                 {item.percentage.toFixed(2)}%)

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import EditExpense from "../pages/EditExpense";
-import ExpenseManager from "../pages/ExpenseManager";
+import EditExpense from "../pages/EditExpense/EditExpense";
+import ExpenseManager from "../pages/ExpenseManager/ExpenseManager";
 import Expenses from "../pages/Expenses/Expenses";
 
 const router = createBrowserRouter([

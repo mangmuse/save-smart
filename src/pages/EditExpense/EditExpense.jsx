@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { useParams, useNavigate, useOutletContext } from "react-router-dom";
-import { checkValidate } from "../utils/checkValidate";
-import { MIN_DATE, MAX_DATE } from "../constants/dateConstants";
+import { checkValidate } from "../../utils/checkValidate";
+import { MIN_DATE, MAX_DATE } from "../../constants/dateConstants";
 
 export default function EditExpense() {
   const navigate = useNavigate();

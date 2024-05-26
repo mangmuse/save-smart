@@ -19,8 +19,8 @@ export default function InputContainer({
         value={value}
         type={type}
         placeholder={placeHolder}
-        min={isDate ? MIN_DATE : false}
-        max={isDate ? MAX_DATE : false}
+        min={isDate ? MIN_DATE : undefined}
+        max={isDate ? MAX_DATE : undefined}
       />
     </Wrapper>
   );
