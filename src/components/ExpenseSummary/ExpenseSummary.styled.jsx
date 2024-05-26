@@ -21,7 +21,7 @@ export const TotalExpenseGraph = styled.div`
   width: 100%;
   height: 40px;
   background-color: rgb(233, 236, 239);
-  border-radius: 0.5rem;
+  border-radius: 8px;
   overflow: hidden;
 `;
 

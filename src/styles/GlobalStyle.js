@@ -22,7 +22,7 @@ ${reset}
  #root {
    display: flex;
    max-width: 800px;
-   padding: 2rem;
+   padding: 32px;
    height: 100vh;
 
     

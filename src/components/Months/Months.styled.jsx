@@ -9,7 +9,7 @@ export const Wrapper = styled.section`
   margin-bottom: 20px;
 
   background-color: var(--color-white);
-  gap: 1rem;
+  gap: 16px;
 `;
 
 const activeStyles = css`
