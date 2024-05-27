@@ -3,7 +3,7 @@ import { expenseReducer, initialState } from "./ExpenseReducer";
 
 export const ExpenseContext = createContext();
 
-export function ExpenseProvider({ children }) {
+export function ExpenseContextProvider({ children }) {
   const [state, dispatch] = useReducer(expenseReducer, initialState);
 
   return (

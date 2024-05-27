@@ -1,15 +1,14 @@
-import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import GlobalStyle from "./styles/GlobalStyle";
-import { ExpenseProvider } from "./context/ExpenseContext";
+import { ExpenseContextProvider } from "./context/ExpenseContextProvider";
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
-      <ExpenseProvider>
+      <ExpenseContextProvider>
         <Outlet />
-      </ExpenseProvider>
+      </ExpenseContextProvider>
     </>
   );
 }
