@@ -4,14 +4,13 @@ import { checkValidate } from "../../utils/checkValidate";
 import { BtnContainer, Wrapper } from "./EditExpense.styled";
 import { Button } from "../../components/Button/Button.styled";
 import InputContainer from "../../components/\bInputContainer/InputContainer";
-import useExpenseContext from "../../hooks/useExpenseContext";
-import { DELETE_EXPENSE, UPDATE_EXPENSE } from "../../constants/dateConstants";
+import { deleteExpense, updateExpense } from "../../store/expensesSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function EditExpense() {
-  const { state, dispatch } = useExpenseContext();
-  const { expenses } = state;
+  const dispatch = useDispatch();
+  const expenses = useSelector((state) => state.expenses);
   const navigate = useNavigate();
-
   const { productId } = useParams();
 
   const refs = useRef({
@@ -36,8 +35,7 @@ export default function EditExpense() {
       alert("asd");
       return;
     }
-    const action = { type: UPDATE_EXPENSE, payload: formState };
-    dispatch(action);
+    dispatch(updateExpense(formState));
     navigate(-1);
   };
 
@@ -52,8 +50,7 @@ export default function EditExpense() {
       return;
     }
 
-    const action = { type: DELETE_EXPENSE, payload: productId };
-    dispatch(action);
+    dispatch(deleteExpense(productId));
     navigate("/");
   };
 

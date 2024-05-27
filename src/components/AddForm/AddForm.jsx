@@ -4,11 +4,11 @@ import { checkValidate } from "../../utils/checkValidate";
 import { Wrapper } from "./AddForm.styled";
 import InputContainer from "../InputContainer/InputContainer";
 import { Button } from "../Button/Button.styled";
-import useExpenseContext from "../../hooks/useExpenseContext";
-import { ADD_EXPENSE } from "../../constants/dateConstants";
+import { addExpense } from "../../store/expensesSlice";
+import { useDispatch } from "react-redux";
 
 export default function AddForm() {
-  const { state, dispatch } = useExpenseContext();
+  const dispatch = useDispatch();
   const initialFormState = {
     date: "",
     item: "",
@@ -33,8 +33,7 @@ export default function AddForm() {
       ...formState,
       amount: parseFloat(formState.amount),
     };
-    const action = { type: ADD_EXPENSE, payload: newExpense };
-    dispatch(action);
+    dispatch(addExpense(newExpense));
     setFormState(initialFormState);
   };
 
