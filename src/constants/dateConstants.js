@@ -21,3 +21,6 @@ export const MONTHS = [
 //   "rgb(255, 193, 7)",
 //   "rgb(23, 162, 184)",
 // ];
+export const ADD_EXPENSE = "ADD_EXPENSE";
+export const DELETE_EXPENSE = "DELETE_EXPENSE";
+export const UPDATE_EXPENSE = "UPDATE_EXPENSE";

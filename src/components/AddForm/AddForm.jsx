@@ -5,7 +5,7 @@ import { Wrapper } from "./AddForm.styled";
 import InputContainer from "../InputContainer/InputContainer";
 import { Button } from "../Button/Button.styled";
 import useExpenseContext from "../../hooks/useExpenseContext";
-import { ADD_EXPENSE } from "../../context/ExpenseReducer";
+import { ADD_EXPENSE } from "../../constants/dateConstants";
 
 export default function AddForm() {
   const { state, dispatch } = useExpenseContext();

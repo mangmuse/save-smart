@@ -5,7 +5,7 @@ import { BtnContainer, Wrapper } from "./EditExpense.styled";
 import { Button } from "../../components/Button/Button.styled";
 import InputContainer from "../../components/\bInputContainer/InputContainer";
 import useExpenseContext from "../../hooks/useExpenseContext";
-import { DELETE_EXPENSE, UPDATE_EXPENSE } from "../../context/ExpenseReducer";
+import { DELETE_EXPENSE, UPDATE_EXPENSE } from "../../constants/dateConstants";
 
 export default function EditExpense() {
   const { state, dispatch } = useExpenseContext();
