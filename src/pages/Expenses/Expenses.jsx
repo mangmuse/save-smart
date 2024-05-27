@@ -1,12 +1,14 @@
-import { useOutletContext, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ExpenseCard from "../../components/ExpenseCard/ExpenseCard";
 import ExpenseSummary from "../../components/ExpenseSummary/ExpenseSummary";
 import { ListWrapper, NoExpensesMessage, Wrapper } from "./Expenses.styled";
+import useExpenseContext from "../../hooks/useExpenseContext";
 
 export default function Expenses() {
   const { month } = useParams();
-  const expenses = useOutletContext();
-
+  const {
+    state: { expenses },
+  } = useExpenseContext();
   const filteredData = expenses
     .filter((data) => {
       const expenseMonth = new Date(data.date).getMonth() + 1;

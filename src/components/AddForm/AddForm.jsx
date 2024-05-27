@@ -4,8 +4,11 @@ import { checkValidate } from "../../utils/checkValidate";
 import { Wrapper } from "./AddForm.styled";
 import InputContainer from "../InputContainer/InputContainer";
 import { Button } from "../Button/Button.styled";
+import useExpenseContext from "../../hooks/useExpenseContext";
+import { ADD_EXPENSE } from "../../context/ExpenseReducer";
 
-export default function AddForm({ onAdd }) {
+export default function AddForm() {
+  const { state, dispatch } = useExpenseContext();
   const initialFormState = {
     date: "",
     item: "",
@@ -30,7 +33,8 @@ export default function AddForm({ onAdd }) {
       ...formState,
       amount: parseFloat(formState.amount),
     };
-    onAdd(newExpense);
+    const action = { type: ADD_EXPENSE, payload: newExpense };
+    dispatch(action);
     setFormState(initialFormState);
   };
 

@@ -1,14 +1,17 @@
 import React, { useRef, useEffect } from "react";
-import { useParams, useNavigate, useOutletContext } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { checkValidate } from "../../utils/checkValidate";
 import { BtnContainer, Wrapper } from "./EditExpense.styled";
 import { Button } from "../../components/Button/Button.styled";
 import InputContainer from "../../components/\bInputContainer/InputContainer";
+import useExpenseContext from "../../hooks/useExpenseContext";
+import { DELETE_EXPENSE, UPDATE_EXPENSE } from "../../context/ExpenseReducer";
 
 export default function EditExpense() {
+  const { state, dispatch } = useExpenseContext();
+  const { expenses } = state;
   const navigate = useNavigate();
-  const { expenses, handleDeleteExpense, handleUpdateExpense } =
-    useOutletContext();
+
   const { productId } = useParams();
 
   const refs = useRef({
@@ -33,7 +36,8 @@ export default function EditExpense() {
       alert("asd");
       return;
     }
-    handleUpdateExpense(formState);
+    const action = { type: UPDATE_EXPENSE, payload: formState };
+    dispatch(action);
     navigate(-1);
   };
 
@@ -47,7 +51,9 @@ export default function EditExpense() {
       alert("asd");
       return;
     }
-    handleDeleteExpense(productId);
+
+    const action = { type: DELETE_EXPENSE, payload: productId };
+    dispatch(action);
     navigate("/");
   };
 
