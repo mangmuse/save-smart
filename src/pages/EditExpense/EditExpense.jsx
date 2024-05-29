@@ -5,7 +5,10 @@ import { BtnContainer, Wrapper } from "./EditExpense.styled";
 import { Button } from "../../components/Button/Button.styled";
 import InputContainer from "../../components/\bInputContainer/InputContainer";
 import useExpenseContext from "../../hooks/useExpenseContext";
-import { DELETE_EXPENSE, UPDATE_EXPENSE } from "../../constants/dateConstants";
+import {
+  deleteExpense,
+  updateExpense,
+} from "../../context/Expense/expenseReducer";
 
 export default function EditExpense() {
   const { state, dispatch } = useExpenseContext();
@@ -36,7 +39,7 @@ export default function EditExpense() {
       alert("asd");
       return;
     }
-    const action = { type: UPDATE_EXPENSE, payload: formState };
+    const action = updateExpense(formState);
     dispatch(action);
     navigate(-1);
   };
@@ -52,7 +55,7 @@ export default function EditExpense() {
       return;
     }
 
-    const action = { type: DELETE_EXPENSE, payload: productId };
+    const action = deleteExpense(productId);
     dispatch(action);
     navigate("/");
   };

@@ -5,10 +5,10 @@ import { Wrapper } from "./AddForm.styled";
 import InputContainer from "../InputContainer/InputContainer";
 import { Button } from "../Button/Button.styled";
 import useExpenseContext from "../../hooks/useExpenseContext";
-import { ADD_EXPENSE } from "../../constants/dateConstants";
+import { addExpense } from "../../context/Expense/expenseReducer";
 
 export default function AddForm() {
-  const { state, dispatch } = useExpenseContext();
+  const { dispatch } = useExpenseContext();
   const initialFormState = {
     date: "",
     item: "",
@@ -33,7 +33,7 @@ export default function AddForm() {
       ...formState,
       amount: parseFloat(formState.amount),
     };
-    const action = { type: ADD_EXPENSE, payload: newExpense };
+    const action = addExpense(newExpense);
     dispatch(action);
     setFormState(initialFormState);
   };

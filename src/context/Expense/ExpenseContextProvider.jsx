@@ -1,7 +1,6 @@
-import { createContext, useReducer } from "react";
-import { expenseReducer, initialState } from "./ExpenseReducer";
-
-export const ExpenseContext = createContext();
+import { useReducer } from "react";
+import { expenseReducer, initialState } from "./expenseReducer";
+import ExpenseContext from "./ExpenseContext";
 
 export function ExpenseContextProvider({ children }) {
   const [state, dispatch] = useReducer(expenseReducer, initialState);
