@@ -19,5 +19,4 @@ export const Input = styled.input`
   border: 1px solid rgb(221, 221, 221);
   border-radius: 4px;
   padding: 8px;
-  ${(props) => props.$isUncontrolled && css``}
 `;
