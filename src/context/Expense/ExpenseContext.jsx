@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const ExpenseContext = createContext();
+const ExpenseContext = createContext(null);
 
 export default ExpenseContext;

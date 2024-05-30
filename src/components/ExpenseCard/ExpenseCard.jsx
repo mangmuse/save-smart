@@ -12,7 +12,7 @@ export default function ExpenseCard({ data }) {
   const { date, item, amount, description, id } = data;
 
   return (
-    <StyledLink to={`/expenses/edit/${id}`}>
+    <StyledLink to={`/expenses/edit/${id}`}> 
       <ExpenseDetail>
         <ExpenseDate>{date} </ExpenseDate>
         <ExpenseItem> {`${description} - ${item}`}</ExpenseItem>
