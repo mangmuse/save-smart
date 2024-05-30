@@ -19,9 +19,7 @@ const InputContainer = React.forwardRef(
     const isDate = id === "date";
     return (
       <Wrapper $isUncontrolled={isEditPage}>
-        <Label htmlFor={id} $isUncontrolled={isEditPage}>
-          {labelText}
-        </Label>
+        <Label htmlFor={id}>{labelText}</Label>
         <Input
           id={id}
           onChange={onChange || undefined}
