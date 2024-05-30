@@ -14,13 +14,7 @@ export const MONTHS = [
   "11월",
   "12월",
 ];
-// export const COLORS = [
-//   "rgb(0, 123, 255)",
-//   "rgb(40, 167, 69)",
-//   "rgb(220, 53, 69)",
-//   "rgb(255, 193, 7)",
-//   "rgb(23, 162, 184)",
-// ];
+
 export const ADD_EXPENSE = "ADD_EXPENSE";
 export const DELETE_EXPENSE = "DELETE_EXPENSE";
 export const UPDATE_EXPENSE = "UPDATE_EXPENSE";

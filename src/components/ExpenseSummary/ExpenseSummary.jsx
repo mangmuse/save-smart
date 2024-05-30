@@ -8,7 +8,6 @@ import {
   TotalExpenseGraph,
   Wrapper,
 } from "./ExpenseSummary.styled";
-// import { COLORS } from "../../constants/dateConstants";
 import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas";
 import { useMemo } from "react";
 import { scaleOrdinal, schemeCategory10 } from "d3";
